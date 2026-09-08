@@ -1,0 +1,150 @@
+# 锡冶炼智能分析系统 - 扩展API Docker Compose配置
+# 版本: 1.0.0
+# 日期: 2025-06-07
+
+version: '3.8'
+
+services:
+  # API服务
+  api:
+    build: .
+    container_name: tin-smelting-api
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+      - DEBUG=false
+      - DATABASE_URL=sqlite:///data/monitoring.db
+      - SECRET_KEY=your-secret-key-here
+      - API_KEY=your-api-key-here
+      - LOG_LEVEL=INFO
+      - WEBSOCKET_ENABLED=true
+      - DATA_QUALITY_ENABLED=true
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+    depends_on:
+      - redis
+    networks:
+      - tin-smelting-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Redis缓存服务
+  redis:
+    image: redis:7-alpine
+    container_name: tin-smelting-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - tin-smelting-network
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+  # PostgreSQL数据库（可选）
+  postgres:
+    image: postgres:15-alpine
+    container_name: tin-smelting-postgres
+    environment:
+      - POSTGRES_DB=tin_smelting
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - tin-smelting-network
+    restart: unless-stopped
+
+  # Nginx反向代理
+  nginx:
+    image: nginx:alpine
+    container_name: tin-smelting-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - api
+    networks:
+      - tin-smelting-network
+    restart: unless-stopped
+
+  # 监控服务（Prometheus）
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: tin-smelting-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - tin-smelting-network
+    restart: unless-stopped
+
+  # 可视化监控（Grafana）
+  grafana:
+    image: grafana/grafana:latest
+    container_name: tin-smelting-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    networks:
+      - tin-smelting-network
+    restart: unless-stopped
+
+  # 消息队列（RabbitMQ）
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: tin-smelting-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - tin-smelting-network
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+    driver: local
+  postgres_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  rabbitmq_data:
+    driver: local
+
+networks:
+  tin-smelting-network:
+    driver: bridge

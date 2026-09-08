@@ -1,0 +1,272 @@
+{
+  "1": {
+    "A1": {
+      "material": "tin_ore",
+      "materialName": "锡精矿",
+      "weight": 5.0,
+      "inboundTime": "2026-06-04 16:16:25"
+    },
+    "A2": {
+      "material": "tin_ore",
+      "materialName": "锡精矿",
+      "weight": 5.0,
+      "inboundTime": "2026-06-04 16:16:25"
+    },
+    "A3": {
+      "material": "tin_ore",
+      "materialName": "锡精矿",
+      "weight": 3.0,
+      "inboundTime": "2026-06-04 16:16:25"
+    },
+    "C2": {
+      "material": "limestone",
+      "materialName": "石灰石",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:21:40"
+    },
+    "C3": {
+      "material": "limestone",
+      "materialName": "石灰石",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:21:40"
+    },
+    "C4": {
+      "material": "limestone",
+      "materialName": "石灰石",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:21:40"
+    },
+    "D1": {
+      "material": "limestone",
+      "materialName": "石灰石",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:21:40"
+    },
+    "E4": {
+      "material": "coal",
+      "materialName": "还原煤",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:22:01"
+    },
+    "F1": {
+      "material": "coal",
+      "materialName": "还原煤",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:22:01"
+    },
+    "F2": {
+      "material": "coal",
+      "materialName": "还原煤",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:22:01"
+    },
+    "F3": {
+      "material": "coal",
+      "materialName": "还原煤",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:22:01"
+    },
+    "D2": {
+      "material": "slag",
+      "materialName": "炉渣",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:23:11"
+    },
+    "D3": {
+      "material": "slag",
+      "materialName": "炉渣",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:23:11"
+    },
+    "D4": {
+      "material": "slag",
+      "materialName": "炉渣",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:23:11"
+    },
+    "E1": {
+      "material": "slag",
+      "materialName": "炉渣",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:23:11"
+    },
+    "A4": {
+      "material": "crude_tin",
+      "materialName": "粗锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-09 09:46:25"
+    },
+    "B1": {
+      "material": "crude_tin",
+      "materialName": "粗锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-09 09:46:25"
+    },
+    "B2": {
+      "material": "crude_tin",
+      "materialName": "粗锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-09 13:40:28"
+    },
+    "B3": {
+      "material": "crude_tin",
+      "materialName": "粗锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-09 13:40:28"
+    }
+  },
+  "2": {
+    "A3": {
+      "material": "limestone",
+      "materialName": "石灰石",
+      "weight": 5.0,
+      "inboundTime": "2026-06-04 16:16:49"
+    },
+    "A4": {
+      "material": "limestone",
+      "materialName": "石灰石",
+      "weight": 4.0,
+      "inboundTime": "2026-06-04 16:16:49"
+    },
+    "B1": {
+      "material": "coal",
+      "materialName": "还原煤",
+      "weight": 5.0,
+      "inboundTime": "2026-06-05 11:24:01"
+    },
+    "B2": {
+      "material": "coal",
+      "materialName": "还原煤",
+      "weight": 5.0,
+      "inboundTime": "2026-06-05 11:24:01"
+    },
+    "B3": {
+      "material": "coal",
+      "materialName": "还原煤",
+      "weight": 3.0,
+      "inboundTime": "2026-06-05 11:24:01"
+    },
+    "D1": {
+      "material": "tin_ore",
+      "materialName": "锡精矿",
+      "weight": 1.0,
+      "inboundTime": "2026-06-07 20:24:47"
+    },
+    "D2": {
+      "material": "tin_ore",
+      "materialName": "锡精矿",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:24:47"
+    },
+    "D3": {
+      "material": "tin_ore",
+      "materialName": "锡精矿",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:24:47"
+    },
+    "D4": {
+      "material": "tin_ore",
+      "materialName": "锡精矿",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:24:47"
+    },
+    "E1": {
+      "material": "tin_ore",
+      "materialName": "锡精矿",
+      "weight": 5.0,
+      "inboundTime": "2026-06-07 20:24:47"
+    },
+    "E2": {
+      "material": "tin_ore",
+      "materialName": "锡精矿",
+      "weight": 2.0,
+      "inboundTime": "2026-06-07 20:24:47"
+    }
+  },
+  "3": {
+    "A1": {
+      "material": "refined_tin",
+      "materialName": "精锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-04 16:17:51"
+    },
+    "A2": {
+      "material": "refined_tin",
+      "materialName": "精锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-04 16:17:51"
+    },
+    "A3": {
+      "material": "refined_tin",
+      "materialName": "精锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-04 16:17:51"
+    },
+    "A4": {
+      "material": "refined_tin",
+      "materialName": "精锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-04 16:17:51"
+    },
+    "B1": {
+      "material": "refined_tin",
+      "materialName": "精锡",
+      "weight": 1.0,
+      "inboundTime": "2026-06-04 16:17:51"
+    },
+    "B4": {
+      "material": "crude_tin",
+      "materialName": "粗锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-05 13:21:55"
+    },
+    "C1": {
+      "material": "crude_tin",
+      "materialName": "粗锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-05 13:21:55"
+    },
+    "C2": {
+      "material": "crude_tin",
+      "materialName": "粗锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-05 13:21:55"
+    },
+    "C3": {
+      "material": "crude_tin",
+      "materialName": "粗锡",
+      "weight": 5.0,
+      "inboundTime": "2026-06-05 13:21:55"
+    },
+    "C4": {
+      "material": "crude_tin",
+      "materialName": "粗锡",
+      "weight": 2.0,
+      "inboundTime": "2026-06-05 13:21:55"
+    },
+    "D3": {
+      "material": "fluorite",
+      "materialName": "萤石",
+      "weight": 5.0,
+      "inboundTime": "2026-06-05 13:22:42"
+    },
+    "D4": {
+      "material": "fluorite",
+      "materialName": "萤石",
+      "weight": 5.0,
+      "inboundTime": "2026-06-05 13:22:42"
+    },
+    "E1": {
+      "material": "fluorite",
+      "materialName": "萤石",
+      "weight": 5.0,
+      "inboundTime": "2026-06-05 13:22:42"
+    },
+    "E2": {
+      "material": "fluorite",
+      "materialName": "萤石",
+      "weight": 2.0,
+      "inboundTime": "2026-06-05 13:22:42"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+# 锡冶炼智能分析系统 - Prometheus监控配置
+# 版本: 1.0.0
+# 日期: 2024-01-01
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  # 监控API服务
+  - job_name: 'tin-smelting-api'
+    static_configs:
+      - targets: ['api:8000']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+    scrape_timeout: 5s
+
+  # 监控Redis
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']
+    scrape_interval: 15s
+
+  # 监控PostgreSQL（如果启用）
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres:5432']
+    scrape_interval: 30s
+
+  # 监控RabbitMQ
+  - job_name: 'rabbitmq'
+    static_configs:
+      - targets: ['rabbitmq:15672']
+    metrics_path: '/metrics'
+    scrape_interval: 30s
+
+  # 监控Nginx
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['nginx:80']
+    scrape_interval: 30s
+
+  # 监控系统资源
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['localhost:9100']
+    scrape_interval: 15s
+
+# 告警规则
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# 记录规则
+rule_files:
+  - "alerts.yml" 
