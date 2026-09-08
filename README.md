@@ -6,23 +6,7 @@
 
 ### 1. 服务组成
 
-~~~mermaid
-flowchart LR
-    Frontend[tin-smelte 前端] -->|HTTP / WebSocket| API[FastAPI · main.py · 8001]
-    API --> Routers[routers 业务路由]
-    Routers --> SQL[SQLModel / SQLAlchemy]
-    SQL --> DB[(MySQL / SQLite)]
-    Routers --> Graph[(Neo4j)]
-    Routers --> LLM[Ollama 本地大模型]
-    Routers --> ML[PyTorch / 工艺优化模型]
-    Routers --> Files[文件、数据集与仓储 JSON]
-    Device[温度采集设备] -->|TCP 8080| Telemetry[遥测接收线程]
-    Telemetry -->|HTTP 上报| API
-~~~
-
 主入口是 main.py，负责注册路由、配置跨域、创建数据库表、启动 TCP 遥测接收和预热参数优化模块。项目采用单个 FastAPI 应用配合业务路由的结构，部分实时状态和任务保存在进程内存中，本地运行采用单进程即可。
-
-前端的模型训练与多指标预测另外依赖 **prediction-master** 服务（通常使用 9000 端口）。该预测服务及其数据集、训练权重不由本项目提供。
 
 ### 2. 技术栈与目录
 
@@ -314,4 +298,4 @@ TCP 接收线程通过 RTM_BASE_URL 转发到实时监测 HTTP 接口，默认�
 | 数据分析 | /data-analysis/* | 统计、趋势、相关性分析和数据概览，目前使用生成的示例数据 |
 | 数据服务 | /data-services/* | 数据处理、验证、转换、导入导出及规则查询 |
 
-推荐使用顺序是：完成基础启动与账号注册，再通过前端验证文件或仓储功能；随后准备 Neo4j 图谱与 Ollama 模型，体验知识抽取、问答和流程规划；最后按需接入设备、优化资源以及独立预测服务。
+推荐使用顺序是：完成基础启动与账号注册，再通过前端验证文件或仓储功能；随后准备 Neo4j 图谱与 Ollama 模型，体验知识抽取、问答和流程规划；最后按需接入设备并准备工艺优化资源。
